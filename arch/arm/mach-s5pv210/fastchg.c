@@ -18,7 +18,6 @@
 #include <linux/fastchg.h>
 
 int force_fast_charge;
-extern int aries_force_fast_charge;
 
 /* sysfs interface */
 static ssize_t force_fast_charge_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
@@ -29,7 +28,6 @@ static ssize_t force_fast_charge_show(struct kobject *kobj, struct kobj_attribut
 static ssize_t force_fast_charge_store(struct kobject *kobj, struct kobj_attribute *attr, const char *buf, size_t count)
 {
 	sscanf(buf, "%du", &force_fast_charge);
-	aries_force_fast_charge = force_fast_charge;
 	return count;
 }
 
@@ -52,7 +50,6 @@ static int __init force_fast_charge_init(void)
 	int retval;
 
 	force_fast_charge = 0;
-	aries_force_fast_charge = force_fast_charge;
 	
         force_fast_charge_kobj = kobject_create_and_add("fast_charge", kernel_kobj);
         if (!force_fast_charge_kobj) {
@@ -67,8 +64,6 @@ static int __init force_fast_charge_init(void)
 
 static void __exit force_fast_charge_exit(void)
 {
-	force_fast_charge = 0;
-	aries_force_fast_charge = force_fast_charge;
 	kobject_put(force_fast_charge_kobj);
 }
 
