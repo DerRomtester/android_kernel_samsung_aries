@@ -464,7 +464,7 @@ config WIFI_CONTROL_FUNC
 
 config FORCE_FAST_CHARGE
         tristate "Force AC charge mode at will"
-        default m
+        default y
         help
           A simple sysfs interface to force adapters that
           are detected as USB to charge as AC.
