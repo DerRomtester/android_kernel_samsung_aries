@@ -24,7 +24,7 @@ rm `echo $MODULES_DIR"/*"`
 find $KERNEL_DIR -name '*.ko' -exec cp -v {} $MODULES_DIR \;
 chmod 644 `echo $MODULES_DIR"/*"`
 
-make zImage
+make -j8 zImage
 
 cp arch/arm/boot/zImage $CWM_DIR"boot.img"
 
