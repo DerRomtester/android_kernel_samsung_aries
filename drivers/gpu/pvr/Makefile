@@ -1,6 +1,6 @@
 ccflags-y := \
 	-Wno-pointer-sign\
-	-fno-strict-overflow\
+	-fstrict-overflow\
 	-fconserve-stack\
 	-Wdeclaration-after-statement\
 	-Wpointer-arith\
@@ -10,9 +10,9 @@ ccflags-y := \
 	-Wstrict-prototypes\
 	-Wno-unused-parameter\
 	-Wno-sign-compare\
-	-fno-strict-aliasing\
+	-fstrict-aliasing\
 	-Wno-pointer-arith\
-	-Os
+	-Ofast
 
 ccflags-y += -DLINUX -D__linux__ -DANDROID
 ccflags-y += -Idrivers/gpu/pvr
