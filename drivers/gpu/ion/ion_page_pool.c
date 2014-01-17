@@ -260,7 +260,6 @@ static int __init ion_page_pool_init(void)
 {
 	shrinker.shrink = ion_page_pool_shrink;
 	shrinker.seeks = DEFAULT_SEEKS;
-	shrinker.batch = 0;
 	register_shrinker(&shrinker);
 #ifdef DEBUG_PAGE_POOL_SHRINKER
 	debugfs_create_file("ion_pools_shrink", 0644, NULL, NULL,
