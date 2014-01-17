@@ -85,7 +85,7 @@ config PVR_USSE_EDM_STATUS_DEBUG
 config PVR_DUMP_MK_TRACE
 	bool "Dump microkernel trace on HW recovery"
 	depends on PVR_USSE_EDM_STATUS_DEBUG
-	default y
+	default n
 
 config PVR_PDUMP
 	bool "Support for parameter dumping (Pdump)"
