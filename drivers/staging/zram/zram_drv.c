@@ -536,8 +536,11 @@ void __zram_reset_device(struct zram *zram)
 {
 	size_t index;
 
-	if (!zram->init_done)
+	down_write(&zram->init_lock);
+	if (!zram->init_done) {
+		up_write(&zram->init_lock);
 		return;
+	}
 
 	zram->init_done = 0;
 
@@ -568,6 +571,7 @@ void __zram_reset_device(struct zram *zram)
 
 	zram->disksize = 0;
 	set_capacity(zram->disk, 0);
+	up_write(&zram->init_lock);
 }
 
 void zram_reset_device(struct zram *zram)
