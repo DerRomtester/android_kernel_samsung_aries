@@ -195,7 +195,7 @@ export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?= arm
 #CROSS_COMPILE	?= /media/DATA2/arm-eabi-4.6/bin/arm-eabi-
 #CROSS_COMPILE	?= /media/DATA2/android-toolchain-eabi/bin/arm-eabi-
-CROSS_COMPILE	?= /home/furst/kernel/linaro_toolchains_2014/arm-cortex_a8-linux-gnueabi-linaro_4.8.3-2014.01/bin/arm-cortex_a8-linux-gnueabi-
+CROSS_COMPILE	?= /home/furst/kernel/arm-cortex_a8-linux-gnueabi-linaro_4.8.3-2014.02/bin/arm-cortex_a8-linux-gnueabi-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
@@ -245,8 +245,8 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 	  else if [ -x /bin/bash ]; then echo /bin/bash; \
 	  else echo sh; fi ; fi)
 
-HOSTCC       = ccache gcc
-HOSTCXX      = ccache g++
+HOSTCC       = gcc
+HOSTCXX      = g++
 HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fno-tree-vectorize -fomit-frame-pointer
 HOSTCXXFLAGS = -O3 -fno-tree-vectorize
 
