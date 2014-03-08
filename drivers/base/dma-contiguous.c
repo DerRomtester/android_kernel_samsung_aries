@@ -499,6 +499,7 @@ struct page *dma_alloc_from_contiguous(struct device *dev, int count,
 		pr_debug("%s(): memory range at %p is busy, retrying\n",
 			 __func__, pfn_to_page(pfn));
 		/* try again */
+		//start = pageno + mask + 1;
 	}
 
 	mutex_unlock(&cma_mutex);
