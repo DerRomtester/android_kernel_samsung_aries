@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$CPU_JOB_NUM" = "" ] ; then
+	CPU_JOB_NUM=`grep -c processor /proc/cpuinfo`
+fi
+
 echo "Making KK-4.4/CM-11.0 kernel for GS1 i9000"
 BUILDVERSION=x-aries-cm-11.0-`date +%Y%m%d`-mtwrp-cma
 DATE_START=$(date +"%s")
@@ -15,13 +19,13 @@ echo "OUTPUT_DIR="$OUTPUT_DIR
 echo "CWM_DIR="$CWM_DIR
 echo "MODULES_DIR="$MODULES_DIR
 
-make modules
+make -j$CPU_JOB_NUM modules
 
 rm `echo $MODULES_DIR"/*"`
 find $KERNEL_DIR -name '*.ko' -exec cp -v {} $MODULES_DIR \;
 chmod 644 `echo $MODULES_DIR"/*"`
 
-make -j5 zImage
+make -j$CPU_JOB_NUM zImage
 
 cp arch/arm/boot/zImage $CWM_DIR"boot.img"
 
