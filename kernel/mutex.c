@@ -559,7 +559,9 @@ slowpath:
 
 		/* didn't get the lock, go to sleep: */
 		spin_unlock_mutex(&lock->wait_lock, flags);
-		schedule_preempt_disabled();
+		preempt_enable_no_resched();
+		schedule();
+		preempt_disable();
 		spin_lock_mutex(&lock->wait_lock, flags);
 	}
 	mutex_remove_waiter(lock, &waiter, current_thread_info());
@@ -595,7 +597,7 @@ skip_wait:
 	}
 
 	spin_unlock_mutex(&lock->wait_lock, flags);
-done:
+
 	preempt_enable();
 	return 0;
 
