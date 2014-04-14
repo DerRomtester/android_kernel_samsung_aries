@@ -7,7 +7,7 @@ echo "Making KK-4.4/CM-11.0 kernel for GS1 i9000"
 BUILDVERSION=Neo-cm-11.0-`date +%Y%m%d`-mtwrp-cma
 DATE_START=$(date +"%s")
 
-make "cyanogenmod_galaxysmtd_defconfig"
+make "vibrant_defconfig"
 
 KERNEL_DIR=`pwd`
 OUTPUT_DIR=../output
