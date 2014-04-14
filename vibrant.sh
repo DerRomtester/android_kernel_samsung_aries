@@ -4,7 +4,7 @@ if [ "$CPU_JOB_NUM" = "" ] ; then
 fi
 
 echo "Making KK-4.4/CM-11.0 kernel for GS1 i9000"
-BUILDVERSION=Neo-cm-11.0-`date +%Y%m%d`-mtwrp-cma
+BUILDVERSION=Neo-cm-11.0-vibrant-`date +%Y%m%d`-mtwrp-cma
 DATE_START=$(date +"%s")
 
 make "vibrant_defconfig"
