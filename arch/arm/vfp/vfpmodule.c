@@ -548,20 +548,13 @@ void kernel_neon_begin(void)
 	 * with preemption disabled. This will make sure that the kernel
 	 * mode NEON register contents never need to be preserved.
 	 */
-	BUG_ON(in_interrupt());
 	cpu = get_cpu();
 
 	fpexc = fmrx(FPEXC) | FPEXC_EN;
 	fmxr(FPEXC, fpexc);
 
-	/*
-	 * Save the userland NEON/VFP state. Under UP,
-	 * the owner could be a task other than 'current'
-	 */
-	if (vfp_state_in_hw(cpu, thread))
-		vfp_save_state(&thread->vfpstate, fpexc);
 #ifndef CONFIG_SMP
-	else if (vfp_current_hw_state[cpu] != NULL)
+	if (vfp_current_hw_state[cpu] != NULL)
 		vfp_save_state(vfp_current_hw_state[cpu], fpexc);
 #endif
 	vfp_current_hw_state[cpu] = NULL;
