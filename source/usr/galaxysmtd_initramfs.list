@@ -48,6 +48,6 @@ file /lvm/sbin/lvm source/usr/galaxysmtd_initramfs_files/lvm 755 0 0
 file /stage1/busybox source/usr/galaxysmtd_initramfs_files/busybox 755 0 0
 file /stage1/init source/usr/galaxysmtd_initramfs_files/init 755 0 0
 file /stage1/erase_image source/usr/galaxysmtd_initramfs_files/erase_image 755 0 0
-file /stage1/ramdisk.img source/usr/galaxysmtd_initramfs_files/ramdisk.img 700 0 0
-file /stage1/ramdisk-recovery.img source/usr/galaxysmtd_initramfs_files/ramdisk-recovery.img 700 0 0
+file /stage1/ramdisk.cpio source/usr/galaxysmtd_initramfs_files/ramdisk.cpio 700 0 0
+file /stage1/ramdisk-recovery.cpio source/usr/galaxysmtd_initramfs_files/ramdisk-recovery.cpio 700 0 0
 dir /sys 755 0 0
