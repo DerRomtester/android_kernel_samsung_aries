@@ -195,7 +195,7 @@ export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?= arm
 #CROSS_COMPILE	?= /media/DATA2/arm-eabi-4.6/bin/arm-eabi-
 #CROSS_COMPILE	?= /media/DATA2/android-toolchain-eabi/bin/arm-eabi-
-CROSS_COMPILE	?= /home/furst/kernel/linaro_toolchains_2014/arm-cortex_a8-linux-gnueabi-linaro_4.8.3-2014.01/bin/arm-cortex_a8-
+CROSS_COMPILE	?= /home/furst/kernel/toolchain/bin/arm-cortex_a8-linux-gnueabi-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
